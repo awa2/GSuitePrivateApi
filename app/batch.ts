@@ -16,7 +16,7 @@ function batchApp() {
     // PRIVATE_CHANNEL : Channel notify to
     // 
     const SlackBot = new Slack.Bot(process.env['SLACK_BOT_NAME'] as string, process.env['SLACK_BOT_TOKEN'] as string);
-    const channel = process.env['PRIVATE_CHANNEL'] as string;
+    const channel = process.env['SLACK_CHANNEL'] as string;
 
     const app = new BatchApp();
 
