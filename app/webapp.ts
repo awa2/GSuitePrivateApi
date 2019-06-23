@@ -1,7 +1,7 @@
 import { WebApp } from '@ts-module-for-gas/gas-http';
 import { process} from '@ts-module-for-gas/gas-utilities';
 
-import calendarCopy from './web/calendarCopy';
+import { calendarCopy } from './web/calendarCopy';
 
 // Web Application Entry Point
 export function webApp(e: any) {
