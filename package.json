@@ -1,0 +1,25 @@
+{
+  "name": "googleprivateapi",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@ts-module-for-gas/gas-http": "0.0.3",
+    "@ts-module-for-gas/gas-slack": "^0.2.1",
+    "@ts-module-for-gas/gas-utilities": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awa2/GooglePrivateApi.git"
+  },
+  "author": "awa2 <takanori.awatsu+npm@gmail.com> (Takanori Awatsu)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awa2/GooglePrivateApi/issues"
+  },
+  "homepage": "https://github.com/awa2/GooglePrivateApi#readme"
+}
