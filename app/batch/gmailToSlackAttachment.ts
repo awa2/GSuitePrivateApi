@@ -1,6 +1,6 @@
 import { Attachment } from '@ts-module-for-gas/gas-slack';
 
-export default (message: GoogleAppsScript.Gmail.GmailMessage) => {
+export function gmailToSlackAttachment(message: GoogleAppsScript.Gmail.GmailMessage){
     const attachment: Attachment = {
         title: message.getSubject(),
         title_link: message.getThread().getPermalink(),
