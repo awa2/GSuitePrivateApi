@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@ts-module-for-gas/gas-http": "0.0.3",
+    "@ts-module-for-gas/gas-http": "0.0.4",
     "@ts-module-for-gas/gas-slack": "^0.2.1",
     "@ts-module-for-gas/gas-utilities": "^0.3.0"
   },
