@@ -86,4 +86,5 @@ namespace CalendarCopy {
         }
     }
 }
-export const calendarCopy = CalendarCopy.main
+const calendarCopy = CalendarCopy.main;
+export { calendarCopy };
