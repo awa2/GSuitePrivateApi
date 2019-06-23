@@ -1,6 +1,6 @@
 import { BatchApp, process, md5sum } from '@ts-module-for-gas/gas-utilities';
 import { Slack, Attachment } from '@ts-module-for-gas/gas-slack';
-import gmailToSlackAttachment from './batch/gmailToSlackAttachment';
+import { gmailToSlackAttachment } from './batch/gmailToSlackAttachment';
 const INTERVAL = 5;
 
 
@@ -18,10 +18,10 @@ function batchApp() {
     const SlackBot = new Slack.Bot(process.env['SLACK_BOT_NAME'] as string, process.env['SLACK_BOT_TOKEN'] as string);
     const channel = process.env['SLACK_CHANNEL'] as string;
 
-    const app = new BatchApp();
+    const app = new BatchApp('batchApp', INTERVAL);
 
     // [SETTING EXAMPLE]
-    // CONDITIONS_FOR_MAIL : Set gmail search conditions, such as 'from:(github.com)', with Array( { condition: 'from:(github.com)'} );
+    // CONDITIONS_FOR_MAIL : Set gmail search conditions, such as 'from:(github.com)', with Array( [{"condition":"from:(github.com)"}] );
     const ConditionsForMail = process.env['CONDITIONS_FOR_MAIL'] as { condition: string}[];
     ConditionsForMail.map(conditionForMail => {
         app.onGmailReceived(conditionForMail.condition, (message) =>{
@@ -31,4 +31,9 @@ function batchApp() {
     })
 
     app.end();
+}
+
+function stop_batch() {
+    const app = new BatchApp('batchApp');
+    app.stop();
 }
