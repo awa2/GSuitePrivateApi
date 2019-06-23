@@ -15,7 +15,7 @@ export default (req: Request, res: Response) => {
         if (condition.ifStartedAfter.match(/[0-2][0-9][0-5][0-9]/) && condition.ifStartedAfter.length === 4) {
             startedAfter = parseInt(condition.ifStartedAfter);
 
-            if (startedAfter < parseInt(Utilities.formatDate(new Date(), 'JST', 'hhmm'))) {
+            if (startedAfter <= parseInt(Utilities.formatDate(new Date(), 'JST', 'hhmm'))) {
                 const event = CalendarCreate(req.body);
                 res.send({ status: 'OK', id: event.getId(), condition: { ifStartedAfter: { startedAfter } } });
             }
@@ -25,7 +25,7 @@ export default (req: Request, res: Response) => {
         const event = CalendarCreate(req.body);
         res.send({ status: 'OK', id: event.getId(), condition: { ifHoliday: true } });
     }
-    if (condition.ifWorkday && (0 < day || day < 6)) {
+    if (condition.ifWorkday && (0 < day && day < 6)) {
         const event = CalendarCreate(req.body);
         res.send({ status: 'OK', id: event.getId(), condition: { ifWorkday: true } });
     }
