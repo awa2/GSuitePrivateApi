@@ -25,8 +25,8 @@ namespace CalendarCopy {
 
             if (condition.ifStartedAfter) {
                 let startedAfter: number;
-                if (condition.ifStartedAfter.match(/[0-2][0-9][0-5][0-9]/) && condition.ifStartedAfter.length === 4) {
-                    startedAfter = parseInt(condition.ifStartedAfter);
+                if ( condition.ifStartedAfter.match(/[0-2][0-9][0-5][0-9]/) && condition.ifStartedAfter.length === 4) {
+                    startedAfter = parseInt(condition.ifStartedAfter, 10);
                     if (startedAfter <= parseInt(Utilities.formatDate(StartTime, 'JST', 'hhmm'))) {
                         const event = CalendarCreate(req.body as Body, StartTime, EndTime);
                         res.send({ status: 'OK', id: event.getId(), condition: { ifStartedAfter: { startedAfter } } });
